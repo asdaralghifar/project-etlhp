@@ -9,15 +9,6 @@ Introduction
 **AdminLTE** is a fully responsive administration template. Based on **[Bootstrap 4](https://getbootstrap.com)** framework.
 Highly customizable and easy to use. Fits many screen resolutions from small mobile devices to large desktops.
 
-**Preview on [AdminLTE.io](https://adminlte.io/themes/v3)**
-
-Looking for Premium Templates?
-------------------------------
-AdminLTE.io just opened a new premium templates page. Hand picked to insure the best quality and the most affordable
-prices. Visit https://adminlte.io/premium for more information.
-
-!["AdminLTE Presentation"](https://adminlte.io/AdminLTE3.png "AdminLTE Presentation")
-
 **AdminLTE** has been carefully coded with clear comments in all of its JS, SCSS and HTML files.
 SCSS has been used to increase code customizability.
 
