@@ -1,0 +1,144 @@
+<?php
+  include('ceksuperadmin.php');
+
+  include('../koneksi.php');  
+?>
+<?php
+include("../koneksi.php");
+// kalau tidak ada id di query string
+if( !isset($_GET['nourut']) ){
+    header('Location: index.php');
+}
+//ambil id dari query string
+$nourut = $_GET['nourut'];
+// buat query untuk ambil data dari database
+$sql = "SELECT * FROM table_arsip WHERE nourut=$nourut";
+$query = mysqli_query($con, $sql);
+$siswa = mysqli_fetch_assoc($query);
+// jika data yang di-edit tidak ditemukan
+if( mysqli_num_rows($query) < 1 ){
+    die("data tidak ditemukan...");
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Data</title>
+
+    <style type="text/css">
+                    input, textarea { 
+                        padding: 0; margin: 0;
+                    }
+                    h2{
+                        color:#50626C;
+                        text-align: center;
+                        font-family: arial;
+                        text-transform: uppercase;
+                        border: 3px solid #f1f1f1;
+                        padding: 5px;
+                        width: 490px;
+                        margin: auto;
+                        margin-bottom: 10px;
+                        margin-top: 20px;
+                    }
+                    form {
+                        border: 3px solid #f1f1f1;
+                        font-family: arial;
+                        width: 500px;
+                        margin: auto;
+                    }
+
+                    input[type=text], input[type=password] {
+                        width: 100%;
+                        padding: 12px 20px;
+                        margin: 8px 0;
+                        display: inline-block;
+                        border: 1px solid #ccc;
+                        box-sizing: border-box;
+                    }
+                    label{
+                        color:#50626C;
+                        text-transform: uppercase;
+                    }
+                    button {
+                        background-color: #049372;
+                        color: white;
+                        padding: 14px 20px;
+                        margin: 8px 0;
+                        border: none;
+                        cursor: pointer;
+                        width: 100%;
+                    }
+
+                    button:hover {
+                        opacity: 0.8;
+                    }
+
+                    .cancelbtn {
+                        width: auto;
+                        padding: 10px 18px;
+                        background-color: #f03434;
+                    }
+
+                    .imgcontainer {
+                        text-align: center;
+                        margin: 24px 0 12px 0;
+                    }
+
+                    img.avatar {
+                        width: 40%;
+                        border-radius: 50%;
+                    }
+
+                    .container {
+                        padding: 16px;
+                    }
+
+                    span.psw {
+                        float: right;
+                        padding-top: 16px;
+
+                    }
+                    span{
+                        color:#50626C;
+                    }
+                    /* Change styles for span and cancel button on extra small screens */
+                    @media screen and (max-width: 300px) {
+                        span.psw {
+                           display: block;
+                           float: none;
+                        }
+                        .cancelbtn {
+                           width: 100%;
+                        }
+                    }
+            </style>
+
+
+</head>
+<body>
+    <header>
+        <h3><center>Update Data</center></h3>
+    </header>
+    <form action="proses-update.php" method="POST">
+        <fieldset>
+            <input type="hidden" name="nourut" value="<?php echo $siswa['nourut'] ?>" />
+        <p>
+            <label for="nolhp">Nomor LHP: </label>
+            <input type="text" name="nolhp" placeholder="Nomor LHP" value="<?php echo $siswa['nolhp'] ?>" />
+        </p>
+        <p>
+            <label for="nolhp">Nama OPD: </label>
+            <input type="text" name="namaopd" placeholder="Nomor LHP" value="<?php echo $siswa['namaopd'] ?>" />
+        </p>
+        <p>
+            <label for="uploadfile">Upload File: </label>
+            <input type="file" name="uploadfile" placeholder="Upload File" value="<?php echo $siswa['uploadfile'] ?>" />
+        </p>
+        <div class="col-4">
+              <button type="submit" name='simpan' value='Update' class="btn btn-primary btn-block">Update</button>
+        </div></td>
+        </fieldset>
+    </form>
+    </body>
+</html>

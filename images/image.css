@@ -1,0 +1,19 @@
+body {
+    background-color: white;
+    background-image: url(hero_1.jpg);
+}
+h1 {
+    text-align: center;
+    color: black;
+}
+.dinas {
+    text-align: center;
+    color: rgba(2, 68, 16, 0.541);
+}
+.login {
+    text-align: center;
+    color: black;
+}
+a {
+    text-align: center;
+}
